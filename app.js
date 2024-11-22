@@ -5,8 +5,9 @@ const userRoutes = require('./routes/users.js');
 require('dotenv').config();
 const PORT = process.env.PORT ||8080;
 
+
 // setting up view engine 
-app.set("view engines", "ejs");
+app.set("view engine", "ejs");
 app.set("views", "./views");
 
 //using express.Router()to organize route
