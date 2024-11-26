@@ -1,16 +1,20 @@
 const express = require('express');
 const router = express.Router();
+const userController = require('../controllers/userController');
+const { readData } = require('../utils/file');
 
-//parses incoming json to native js objects 
+//middleware to parse incoming json to native js objects
 router.use(express.json());
 
-// middleware to parse url-encoded strings 
-router.use(express.urlencoded());
+//middleware to parse url-encoded strings
+router.use(express.urlencoded({extended: true}));
 
+//create new user route
+router.post("/users", userController.createUser);
 
 
 //Render the view
-router.get('/', (req,res) => {
+router.get('/', (req, res) =>{
     res.render("home");
 });
 
